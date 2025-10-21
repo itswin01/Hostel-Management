@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "https://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">hr</property>
+        <property name="hibernate.connection.password">sas</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        
+        <!-- Hibernate settings -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+        <!-- JDBC connection pool settings -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+        <!-- Entity mappings - ALL YOUR ENTITIES -->
+        <mapping class="hostel.models.Student"/>
+        <mapping class="hostel.models.Room"/>
+        <mapping class="hostel.models.Hostel"/>
+        <mapping class="hostel.models.Allocation"/>
+        
+        <!-- Add these missing entity mappings -->
+        <mapping class="hostel.models.Preference"/>
+        <mapping class="hostel.models.Warden"/>
+        <mapping class="hostel.models.HostelExecutive"/>
+        
+        <!-- REMOVE THIS LINE: AllocationService is NOT an entity -->
+        <!-- <mapping class="hostel.models.AllocationService"/> -->
+    </session-factory>
+</hibernate-configuration>

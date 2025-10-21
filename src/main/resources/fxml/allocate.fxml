@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="hostel.controllers.AllocateController"
+      stylesheets="app.css"> 
+    <padding>
+        <Insets top="12" right="12" bottom="12" left="12"/>
+    </padding>
+
+    <HBox spacing="6">
+        <Label text="Register No:"/>
+        <TextField fx:id="registerNoField" promptText="Enter register no"/>
+        <Button text="Search" onAction="#onSearchStudent"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <VBox spacing="6" prefWidth="360">
+            <Label text="Student Details"/>
+            <TextArea fx:id="studentDetails" editable="false" prefHeight="120"/>
+        </VBox>
+
+        <VBox spacing="6" prefWidth="420">
+            <Label text="Available Rooms (select one)"/>
+            <TableView fx:id="roomsTable" prefHeight="180">
+                <columns>
+                    <TableColumn text="Hostel" fx:id="colHostel" />
+                    <TableColumn text="Room No" fx:id="colRoomNo" />
+                    <TableColumn text="Type" fx:id="colType" />
+                    <TableColumn text="Capacity" fx:id="colCapacity" />
+                    <TableColumn text="Available" fx:id="colAvailable" />
+                </columns>
+            </TableView>
+            <Button text="Allocate Selected Room" onAction="#allocateStudent"/>
+        </VBox>
+    </HBox>
+
+    <Label fx:id="statusLabel"/>
+</VBox>

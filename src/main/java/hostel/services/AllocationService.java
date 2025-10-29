@@ -28,6 +28,34 @@ public class AllocationService {
         }
     }
 
+    public List<Student> getStudentsWithoutRooms() {
+    try {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "SELECT s FROM Student s WHERE s.digitalId NOT IN " +
+                    "(SELECT a.student.digitalId FROM Allocation a WHERE a.isActive = 'Y')";
+        List<Student> students = session.createQuery(hql, Student.class).list();
+        session.close();
+        return students;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return new ArrayList<>();
+        }
+    }
+
+    public List<Student> getStudentsWithRooms() {
+    try {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "SELECT DISTINCT s FROM Student s " +
+                    "JOIN Allocation a ON s.digitalId = a.student.digitalId " +
+                    "WHERE a.isActive = 'Y'";
+        List<Student> students = session.createQuery(hql, Student.class).list();
+        session.close();
+        return students;
+    } catch (Exception e) {
+        e.printStackTrace();
+        return new ArrayList<>();
+        }
+    }
     @Transactional
     public void allocate(Long studentId, Long roomId, String admin) {
         EntityManager em = HibernateUtil.getSessionFactory().createEntityManager();

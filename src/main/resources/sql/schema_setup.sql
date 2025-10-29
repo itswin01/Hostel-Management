@@ -5,14 +5,8 @@ CREATE TABLE STUDENT (
     StudentName VARCHAR2(20), 
     Department VARCHAR2(10), 
     Year NUMBER, 
-    ParentName VARCHAR2(20),
-    StudentPhoneNo VARCHAR2(15), 
-    ParentPhoneNo VARCHAR2(15), 
-    StudentMailID VARCHAR2(50), 
-    Address VARCHAR2(100), 
-    RoomNo NUMBER, 
-    HostelNo NUMBER, 
-    PreferenceNo NUMBER
+    
+    
 );
 
 CREATE TABLE HOSTEL (
@@ -22,11 +16,7 @@ CREATE TABLE HOSTEL (
     TotalRooms NUMBER
 );
 
-CREATE TABLE PREFERENCE (
-    PreferenceNo NUMBER PRIMARY KEY, 
-    PRoomType VARCHAR2(6), 
-    PRoomCategory VARCHAR2(15)
-);
+
 
 CREATE TABLE ROOM (
     RoomNo NUMBER PRIMARY KEY, 

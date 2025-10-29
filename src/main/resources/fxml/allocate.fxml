@@ -37,5 +37,39 @@
         </VBox>
     </HBox>
 
+    <!-- NEW: Students Without Rooms Section -->
+    <VBox spacing="10" prefWidth="400">
+        <Label text="Students Without Allocated Rooms"/>
+        <TableView fx:id="studentsTable" prefHeight="200">
+            <columns>
+                <TableColumn text="ID" fx:id="colStudentId" prefWidth="60"/>
+                <TableColumn text="Name" fx:id="colStudentName" prefWidth="150"/>
+                <TableColumn text="Department" fx:id="colDepartment" prefWidth="100"/>
+                <TableColumn text="Year" fx:id="colYear" prefWidth="60"/>
+            </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+        </TableView>
+
+    </VBox>
+
+    <!-- NEW: Students With Allocated Rooms Section -->
+    <VBox spacing="10" prefWidth="400">
+        <Label text="Students With Allocated Rooms"/>
+        <TableView fx:id="allocatedStudentsTable" prefHeight="200">
+            <columns>
+                <TableColumn text="ID" fx:id="colAllocatedStudentId" prefWidth="60"/>
+                <TableColumn text="Name" fx:id="colAllocatedStudentName" prefWidth="150"/>
+                <TableColumn text="Department" fx:id="colAllocatedDepartment" prefWidth="100"/>
+                <TableColumn text="Year" fx:id="colAllocatedYear" prefWidth="60"/>
+                <TableColumn text="Room No" fx:id="colRoomAllocated" prefWidth="80"/>
+            </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+        </TableView>
+    </VBox>
+
     <Label fx:id="statusLabel"/>
 </VBox>
